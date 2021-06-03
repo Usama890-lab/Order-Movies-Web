@@ -1,0 +1,33 @@
+﻿@model IEnumerable<VidlyWeb.Models.Genre>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Genres</h2>
+
+@if (!Model.Any())
+{
+    <p>No genres have been added.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Genre</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var genre in Model)
+            {
+                <tr>
+                    <td>@genre.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@Html.ActionLink("Add Genre", "Add", "Genres", null, new { @class = "btn btn-primary mb-3" })
+

@@ -1,0 +1,17 @@
+﻿@model VidlyWeb.ViewModels.RandomMovieViewModel
+@{
+    ViewData["Title"] = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{ 
+    var className = Model.Customers.Count > 5 ? "popular" : null;
+}
+
+<h2 class="@className">@Model.Movie.Name</h2>
+<ul class="list-group">
+    @foreach (var customer in Model.Customers)
+    {
+        <li class="list-group-item">@customer.Name</li>
+    }
+</ul>
